@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <link rel="shortcut icon" href="https://iconarchive.com/download/i86721/uiconstock/e-commerce/e-commerce-icon.ico"
+    type="image/x-icon">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+    @media only screen and (max-width: 600px) {
+      .productname {
+        font-size: 10px;
+      }
+    }
+
+    @media screen and (max-width: 1200px) {
+      .productname {
+        font-size: 20px;
+      }
+    }
+
+
+    .wrapper {
+      height: 420px;
+      width: 654px;
+      margin: 50px auto;
+      margin-top: 15%;
+      border-radius: 7px 7px 7px 7px;
+      /* VIA CSS MATIC https://goo.gl/cIbnS */
+      -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+      -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+      box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-img {
+      float: left;
+      height: 420px;
+      width: 327px;
+    }
+
+    .product-img img {
+      border-radius: 7px 0 0 7px;
+    }
+
+    .product-info {
+      float: left;
+      height: 420px;
+      width: 327px;
+      border-radius: 0 7px 10px 7px;
+      background-color: #ffffff;
+    }
+
+    .product-text {
+      height: 300px;
+      width: 500px;
+    }
+
+    .product-text h1 {
+      margin: 0 0 0 38px;
+      padding-top: 52px;
+      font-size: 34px;
+      color: #474747;
+    }
+
+    .product-text h1,
+    .product-price-btn p {
+      font-family: 'Bentham', serif;
+    }
+
+    .product-text h2 {
+      margin: 0 0 47px 38px;
+      font-size: 13px;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: #d2d2d2;
+      letter-spacing: 0.2em;
+    }
+
+    .product-text p {
+      height: 125px;
+      margin: 0 0 0 38px;
+      font-family: 'Playfair Display', serif;
+      color: #8d8d8d;
+      line-height: 1.7em;
+      font-size: 15px;
+      font-weight: lighter;
+      overflow: hidden;
+    }
+
+    .product-price-btn {
+      height: 103px;
+      width: 327px;
+      margin-top: 17px;
+      position: relative;
+    }
+
+    .product-price-btn p {
+      display: inline-block;
+      position: absolute;
+      top: -13px;
+      height: 50px;
+      font-family: 'Trocchi', serif;
+      margin: 0 0 0 38px;
+      font-size: 28px;
+      font-weight: lighter;
+      color: #474747;
+    }
+
+    /* span {
+  display: inline-block;
+  height: 50px;
+  font-family: 'Suranna', serif;
+  font-size: 34px;
+} */
+
+    .button {
+      float: right;
+      display: inline-block;
+      height: 50px;
+      width: 100px;
+      margin: 0 40px 0 16px;
+      box-sizing: border-box;
+      border: transparent;
+      text-align: center;
+      border-radius: 60px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 30px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #ffffff;
+      background-color: #9cebd5;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .button:hover {
+      background-color: #79b0a1;
+    }
+  </style>
+  <script>
+    function codeAddress() {
+      renderItems()
+    }
+
+
+    window.onload = codeAddress;
+    function renderItems() {
+      var shop = localStorage.getItem('shop');
+
+      if (!shop) {
+        localStorage.setItem('shop', JSON.stringify([]));
+        shop = JSON.stringify([]);
+      }
+      var shopItem = document.getElementById("no-badge");
+      shop = JSON.parse(shop);
+      shopItem.innerHTML = shop.length;
+      var productsDiv = document.getElementById("products");
+      var ch = "";
+      if (shop.length === 0) {
+        console.log('gfèdsy')
+         productsDiv.innerHTML = "<img width='500px' style='margin-left : 32%;margin-top :18%' src='./notfound.png' />"
+        //productsDiv.innerHTML = "<p>dfsjofjodisio</p>"
+      } else {
+        for (var i = 0; i < shop.length; i++) {
+          var element = shop[i];
+          ch = ch + `<div class="wrapper">
+<div class="product-img">
+  <img src="${element.url}" height="420" width="327">
+</div>
+<div class="product-info">
+  <div class="product-text">
+    <h3 style="margin-left : 20px" class="productname">${element.name}</h3>
+    <h2>S.N.T.C.19</h2>
+    <p>quantity: ${element.quantity}</p>
+    <p>Prix: ${element.price}</p>
+  </div>
+  <div class="product-price-btn">
+    <p style="font-size:25px"><span>${element.price * element.quantity}</span>DT</p>
+    <div class="button"  onclick="removeItem('${element.id}')">-</div>
+  </div>
+</div>
+</div>`
+        }
+        productsDiv.innerHTML = ch;
+
+      }
+
+
+    }
+
+    function removeItem(id) {
+      var shop = localStorage.getItem('shop');
+      shop = JSON.parse(shop);
+      var index = getIndex(shop, parseInt(id));
+      if (shop[index].quantity > 1) {
+        console.log(shop[index].quantity >= 1, shop[index].quantity)
+        shop[index].quantity -= 1
+      } else {
+        shop.splice(index, 1)
+      }
+      console.log(shop)
+      localStorage.setItem('shop', JSON.stringify(shop));
+      renderItems()
+    }
+
+    function addItem(sign, obj) {
+      //console.log(obj)
+      var shop = localStorage.getItem('shop');
+      shop = JSON.parse(shop);
+      if (shop.length === 0) {
+        console.log('jfsdfio')
+        obj.quantity = 1
+        shop.push(obj)
+        localStorage.setItem('shop', JSON.stringify(shop));
+      } else {
+        var index = getIndex(shop, obj.id);
+        console.log(index)
+        if (index === -1) {
+          obj.quantity = 1
+          shop.push(obj)
+          localStorage.setItem('shop', JSON.stringify(shop));
+        } else {
+          shop[index].quantity += 1
+          localStorage.setItem('shop', JSON.stringify(shop));
+        }
+      }
+      var shopItem = document.getElementById("no-badge");
+      shopItem.innerHTML = shop.length;
+
+    }
+    function getIndex(array, id) {
+      var index = -1;
+      for (var i = 0; i < (array.length); i++) {
+        var element = array[i];
+        if (element.id === id) {
+          index = i
+        }
+      }
+      return index;
+    }
+  </script>
+  <title> S.N.T.C19 </title>
+</head>
+
+<body style="background-color: #f8efd3;">
+  <div id=sticky>
+    <a id="logo" href="./lastproject.html"> <img class="logo-docplanner"
+        src="https://cdn2.iconfinder.com/data/icons/coronavirus-innovicons-color/128/button-no_handshake-forbidden-coronavirus-preventive_measures-512.png"
+        alt="Docplanner Group"> </a>
+    </br> <a id="snt" href="#aboutme"><strong> S.N.T.C19</strong> </a> </br>
+    <a id="t" href="#prevent"><strong> Things you need to know </strong> </a>
+    <a id="s" href="#symptoms"><strong> Symptoms</strong> </a>
+    <a id="i" href="#ifyouaresick"><strong> If you are sick</strong> </a>
+
+    <a href="./shop.html" id="cart" class="notification">
+      <i style="font-size: 24px;" class="fas fa-shopping-cart"></i>
+      <span id="no-badge" class="badge">0</span>
+    </a>
+    <a class="shop" id="i" href="#itemshop"><strong> Itemshop</strong> </a>
+
+  </div>
+  </br>
+  <div id="products">
+    <!-- <div class="wrapper">
+      <div class="product-img">
+        <img src="http://bit.ly/2tMBBTd" height="420" width="327">
+      </div>
+      <div class="product-info">
+        <div class="product-text">
+          <h1>Harvest Vase</h1>
+          <h2>by studio and friends</h2>
+          <p>Harvest Vases are a reinterpretation<br> of peeled fruits and vegetables as<br>
+            functional objects. The surfaces<br> appear to be sliced and pulled aside,<br>
+            allowing room for growth. </p>
+        </div>
+        <div class="product-price-btn">
+          <p><span>78</span>$</p>
+          <button type="button">buy now</button>
+        </div>
+      </div>
+    </div> -->
+  </div>
+
+
+
+
+
+
+</body>
+</div>
+<footer id="aboutme">
+
+</footer>
+
+</html>

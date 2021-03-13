@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="shortcut icon" href="https://iconarchive.com/download/i86721/uiconstock/e-commerce/e-commerce-icon.ico"
+        type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script>
+        function codeAddress() {
+            var shop = localStorage.getItem('shop');
+
+            if (!shop) {
+                localStorage.setItem('shop', JSON.stringify([]));
+                shop = JSON.stringify([]);
+            }
+            var shopItem = document.getElementById("no-badge");
+            shop = JSON.parse(shop);
+            console.log('shop',shop,shop.length)
+            shopItem.innerHTML = shop.length;
+        }
+        window.onload = codeAddress;
+        function addItem(sign, obj) {
+            //console.log(obj)
+            var shop = localStorage.getItem('shop');
+            shop = JSON.parse(shop);
+            if (shop.length === 0) {
+                console.log('jfsdfio')
+                obj.quantity = 1
+                shop.push(obj)
+                localStorage.setItem('shop', JSON.stringify(shop));
+            } else {
+                var index = getIndex(shop, obj.id);
+                console.log(index)
+                if (index === -1) {
+                    obj.quantity = 1
+                    shop.push(obj)
+                    localStorage.setItem('shop', JSON.stringify(shop));
+                } else {
+                    shop[index].quantity += 1 
+                    localStorage.setItem('shop', JSON.stringify(shop));
+                }
+            }
+             var shopItem = document.getElementById("no-badge");
+            shopItem.innerHTML = shop.length;
+           
+        }
+        function getIndex(array, id) {
+            var index = -1;
+            for (var i = 0; i < (array.length); i++) {
+                var element = array[i];
+                if (element.id === id) {
+                    index = i
+                }
+            }
+            return index;
+        }
+    </script>
+    <title> S.N.T.C19 </title>
+</head>
+
+<body>
+    <div id=sticky>
+        <a id="logo" href="./lastproject.html"> <img class="logo-docplanner"
+                src="https://cdn2.iconfinder.com/data/icons/coronavirus-innovicons-color/128/button-no_handshake-forbidden-coronavirus-preventive_measures-512.png"
+                alt="Docplanner Group"> </a>
+        </br> <a id="snt" href="#aboutme"><strong> S.N.T.C19</strong> </a> </br>
+        <a id="t" href="#prevent"><strong> Things you need to know </strong> </a>
+        <a id="s" href="#symptoms"><strong> Symptoms</strong> </a>
+        <a id="i" href="#ifyouaresick"><strong> If you are sick</strong> </a>
+        <a href="./shop.html" id="cart" class="notification">
+            <i style="font-size: 24px;" class="fas fa-shopping-cart"></i>
+            <span id="no-badge" class="badge">0</span>
+        </a>
+        <a class="shop" id="i" href="#itemshop"><strong> Itemshop</strong> </a>
+
+        <a id="career" href="#career"> </a>
+
+        <a id="Departements" href="#Departements"> </a>
+    </div>
+
+    </br>
+    <div id="TopOfThePage"></div> </br></br></br></br></br> <br> <br> <br> <br> <br> <br>
+    <img class="midlogo" src="https://www.initial.co.uk/blog/wp-content/uploads/2020/02/coronavirus-alert-icon.png">
+    </br></br>
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img id="i1" src="https://gray-whsv-prod.cdn.arcpublishing.com/resizer/7pmJWGRoDyaAKhKyyp0rkhIaP1Y=/1200x675/smart/cloudfront-us-east-1.images.arcpublishing.com/gray/6CYF2HCN4FODXA4HAGHV6GMQFI.png"  style=  "width:100%">
+          <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <div id="i2" class="numbertext">3 / 3</div>
+            <img src="https://cdn.futura-sciences.com/buildsv6/images/mediumoriginal/6/f/9/6f976b2a82_50163425_test-covid-19-myriamb-adobe-stock.jpg" style="width:100%">
+            <div class="text"></div>
+          </div>
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img id="i3" src="https://s.france24.com/media/display/44f33c64-33fc-11eb-a1bd-005056a98db9/w:1280/p:16x9/576ead7d1bf29cd5cf5157349af52a28882e2f16.jpg" style="width:100%">
+          <div class="text"></div>
+        </div>
+        
+       
+        
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+        </div>
+        
+        <script>
+        var slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1}    
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+          setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+        </script>
+    <div>
+        <h1 id="sayno">Say stop to coronavirus !</h1>
+        <div id="firstpar">
+            <p class="title-res"> <strong>As the COVID-19 pandemic continues to roil economies and confine people to the
+                    solitude of their homes,i decided to make this web to help you protect yourself and your relatives,
+                    because i care about humanity! </strong> </p>
+        </div>
+
+        </br></br></br></br></br></br>
+
+
+    </div>
+    <div id="anotherpagecolor">
+        <div id="theworld">
+
+        </div>
+        <br><br><br><br><br><br><br><br>
+
+        <div>
+        </div>
+        <br><br><br><br>
+        <br><br><br><br>
+        <br><br><br><br>
+        <br><br><br><br>
+        <br><br><br><br>
+        <br><br><br><br>
+
+
+    </div>
+    <br><br>
+    <div>
+        <img id="prevent" src="https://www.weatherfordtx.gov/ImageRepository/Document?documentId=17480">
+
+    </div>
+    <div id="im">
+        </br></br>
+<strong><h1>important information!</h1></strong>
+<p>The Health Ministry said on Wednesday that it will receive about one million doses from UK laboratories and one million doses from the US.
+
+    These vaccines will arrive in early March, in addition to two million doses of the Pfizer-BioNTech vaccine.
+    
+    Notably, Medical staff workers will be the first to receive the jabs.
+    
+    On Tuesday, the parliament adopted a bill authorizing Tunisia to join the global COVAX initiative for equitable global access to COVID-19 vaccines.
+    
+    Meanwhile, Health Minister Faouzi Mehdi announced a decrease in the number of infections in the country but stressed the need to adhere to the health preventive measures.
+    
+    He pointed out that more than 400,000 Tunisians have registered to receive the vaccine, “which is a limited number compared to what Tunisia aspires to in terms of the number of vaccinated citizens.”
+    
+    This came as the Health Ministry reported 75 new Covid-19 deaths by Feb. 8, raising the death toll to 7,332 since March 2020.
+    
+    It also recorded 811 new infections, raising the infection tally to 218,564.
+
+</p>
+        <p><strong>
+                <h3 class="w">1.washing your hands </h3>
+            </strong></p> <br>
+        <p> Global Handwashing Day observed annually on October 15 to raise awareness and highlight the importance of
+            handwashing as an effective means of disease prevention – this year marks a critical reminder for the world
+            and the Region that this simple, cost effective practice can save lives.
+
+            ‘Handwashing has always been one of most effective ways of keeping diseases at bay. It is a simple act that
+            pays in dividends when it comes to keeping ourselves healthy and safe. Handwashing is also one of the key
+            cornerstones of COVID-19 prevention. Now more than ever as we embrace the new normal and live with COVID-19,
+            hand hygiene needs to become an integral part of our daily routine and our lives, as we live through this
+            pandemic, and beyond, to protect us from diseases,’ said Dr Poonam Khetrapal Singh, Regional Director, WHO
+            South-East Asia Region.
+
+            With COVID-19 transmission mainly spreading between people through direct, indirect (through contaminated
+            objects or surfaces), or close contact with infected people via mouth and nose secretions, washing hands
+            with soap and running water is of critical importance. To stop the spread of COVID-19, along with other
+            COVID appropriate behaviours, the practice of handwashing at regular intervals is a must, after coughing or
+            sneezing, when caring for the sick, after using the toilet, before eating, while preparing food and after
+            handling animals or animal waste. Handwashing after touching common surfaces such as doorknobs or handles,
+            or after one comes back home from visiting a public place will keep ourselves and others around us safe.
+
+            “Promoting hand hygiene at all levels of health care is also critical. Hand hygiene, a very simple action,
+            is well accepted to be one of the primary modes of reducing health care-associated infection and of
+            enhancing patient safety,” the Regional Director said.
+
+            The pandemic is still among us and it is far from over. We must remind ourselves of the basics that we as
+            individuals can do to keep ourselves safe, she said.
+
+            This year’s Global Handwashing Day theme is Hand Hygiene for All and calls for all of society to achieve
+            universal hand hygiene. To beat the virus today and ensure better health outcomes beyond the pandemic,
+            handwashing with soap must be a priority now and in the future.
+        </p>
+
+        <p><strong>
+                <h3 class="w1">2.Wearing your mask</h3>
+            </strong></p> <br>
+        <img id="kmama" src="kmama.png" height="500px" width="500px">
+
+        <h3 class="w2">Evidence for Effectiveness of Masks </h3>
+        <p>Your mask helps protect those around you
+            COVID-19 spreads mainly from person to person through respiratory droplets. Respiratory droplets travel into
+            the air when you cough, sneeze, talk, shout, or sing. These droplets can then land in the mouths or noses of
+            people who are near you or they may breathe these droplets in.
+
+            Masks are a simple barrier to help prevent your respiratory droplets from reaching others. Studies show that
+            masks reduce the spray of droplets when worn over the nose and mouth.
+
+            You should wear a mask, even if you do not feel sick. This is because several studies have found that people
+            with COVID-19 who never develop symptoms (asymptomatic) and those who are not yet showing symptoms
+            (pre-symptomatic) can still spread the virus to other people. Wearing a mask helps protect those around you,
+            in case you are infected but not showing symptoms.
+
+            It is especially important to wear a mask when you are indoors with people you do not live with and when you
+            are unable to stay at least 6 feet apart since COVID-19 spreads mainly among people who are in close contact
+            with one another. </p>
+        </br>
+        <h3 class="w3">Your mask offers some protection to you </h3>
+        <p>
+            A cloth mask also offers some protection to you too. How well it protects you from breathing in the virus
+            likely depends on the fabrics used and how your mask is made (such as the type of fabric, the number of
+            layers of fabric, and how well the mask fits). CDC is currently studying these factors.
+        <h3 class="w4">Other Types of Face Protection</h3>
+        <img src="bilar.png" id="bilar">
+        <p>I personally do not recommend external icon using face shields or goggles as a substitute for masks. Goggles
+            or other eye protection may be used in addition to a mask. Do NOT put a plastic face shield (or a mask) on
+            newborns or infants.
+
+            Face shields and goggles are primarily used to protect the eyes of the person wearing it. Goggles do not
+            cover the nose and mouth. Face shields are not as effective at protecting you or the people around you from
+            respiratory droplets. Face shields have large gaps below and alongside the face, where your respiratory
+            droplets may escape and reach others around you and will not protect you from respiratory droplets from
+            others. However, wearing a mask may not be feasible in every situation </p>
+        <h3 class="w5">3.Avoiding crowded places</h3>
+        <img src="https://www.hegghc.org/wp-content/uploads/2020/03/social-distancing-covid19.png" height="250px"
+            id="sdi" width="250px">
+        <p> A better understanding of how the COVID-19 pandemic responds to social distancing efforts is required for
+            the control of future outbreaks and to calibrate partial lock-downs. We present quantitative relationships
+            between key parameters characterizing the COVID-19 epidemiology and social distancing efforts of nine
+            selected European countries. Epidemiological parameters were extracted from the number of daily deaths data,
+            while
+        <div id="symptoms"></div> mitigation efforts are estimated from mobile phone tracking data. The decrease of the
+        basic reproductive number (R0) as well as the duration of the initial exponential expansion phase of the
+        epidemic strongly correlates with the magnitude of mobility reduction. Utilizing these relationships we decipher
+        the relative impact of the timing and the extent of social distancing on the total death burden of the pandemic.
+        </p>
+        <h3 class="w6">4.Symptoms</h3>
+        <p>People with COVID-19 have had a wide range of symptoms reported – ranging from mild symptoms to severe
+            illness. Symptoms may appear 2-14 days after exposure to the virus. People with these symptoms may have
+            COVID-19:
+
+            <br>Fever or chills <br> <strong>
+                -Cough
+                -Shortness of breath or difficulty breathing<br>
+                -Fatigue<br>
+                -Muscle or body aches<br>
+                -Headache<br>
+                -New loss of taste or smell<br>
+                -Sore throat<br>
+                -Congestion or runny nose<br>
+                -Nausea or vomiting<br>
+                -Diarrhea
+        </p></strong>
+        <div>
+            <h3 id="ifyouaresick" class="w7">5.What if you got sick?</h3>
+        </div>
+        <div>
+            <div><strong>Stay home.</strong> Most people with COVID-19 have mild illness and can recover at home without
+                medical care. Do not leave your home, except to get medical care. Do not visit public areas.</div>
+            <div><strong>Take care of yourself.</strong> Get rest and stay hydrated. Take over-the-counter medicines,
+                such as acetaminophen, to help you feel better.</li>
+                <div><strong>Stay in touch with your doctor</strong><strong>.</strong> Call before you get medical care.
+                    Be sure to get care if you have trouble breathing, or have any other emergency warning signs, or if
+                    you think it is an emergency.</div>
+                <div><strong>Avoid public transportation</strong>, ride-sharing, or taxis.</div>
+            </div>
+            </p>
+
+        </div>
+    </div>
+
+    <div id="shoop">
+        <div id="content">
+            <div class="list">
+                <div class="product-card">
+                    <span class="tag" onclick="addItem('+',{name : 'jetable',url : './pav2.jpg',price : 55 , id:0})">
+                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">
+                            <i class="fas fa-plus-circle"></i>
+                        </span>
+                    </span>
+            <div id="itemshop"></div>
+                            <h2  >S.N.T.C.19<h2>
+                            <h4>Set of 50 respiratory protection and hygiene masks - 3-ply bib</h4>
+                    
+                            <figure>
+                                <img height="100px" src="./pav2.jpg" alt="product" />
+                            </figure>
+
+                            <span class="price">
+                                55DT
+                            </span>
+                </div>
+                <div class="product-card">
+                    <span class="tag"
+                        onclick="addItem('+',{name : 'Bavette lavable armani',url : './pav1.jpg',price : 5,id : 1})">
+                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">
+                            <i class="fas fa-plus-circle"></i>
+                        </span>
+                    </span>
+                    <h2>S.N.T.C.19<h2>
+                            <h4>Bavette lavable  </h4>
+                            <figure>
+                                <img height="140px" src="./pav1.jpg" alt="product" />
+                            </figure>
+
+                            <span class="price">
+                                5DT
+                            </span>
+                </div>
+                <div class="product-card">
+                    <span class="tag"
+                        onclick="addItem('+',{name : 'GEL désinfectant',url : './gel.jpg',price : 10, id:2})">
+                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">
+                            <i class="fas fa-plus-circle"></i>
+                        </span>
+                    </span>
+                    <h2>S.N.T.C.19<h2>
+                            <h4>CONTACTLESS FRONT THERMOMETER </h4>
+                            <figure>
+                                <img height="120px" src="./gel.jpg" alt="product" />
+                            </figure>
+                            <span class="price">
+                                160DT
+                            </span>
+                             
+                </div>
+                <div id="itemshop"></div> <br><br><br><br><br>
+                <div class="product-card">
+                    <span class="tag"
+                        onclick="addItem('+',{name : 'total disinfection for locals',url : './desinfecteurs.jpg',price : 300, id:3})">
+                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">
+                            <i class="fas fa-plus-circle"></i>
+                        </span>
+                    </span>
+                    <h2>S.N.T.C.19<h2>
+                            <h4>total disinfection for locals </h4>
+                            <figure>
+                                <img height="100 px" src="./desinfecteurs.jpg" alt="product" />
+                            </figure>
+                            <span class="price">
+                                300DT
+                            </span>
+                   
+                </div>
+              
+            </div>
+
+        </div>
+</body>
+</div>
+<footer id="aboutme">
+
+</footer>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+
+
+
+</body>
+</html> 
+
+</html>
