@@ -16,6 +16,9 @@
       }
     }
 
+
+
+
     @media screen and (max-width: 1200px) {
       .productname {
         font-size: 20px;
@@ -26,7 +29,8 @@
     .wrapper {
       height: 420px;
       width: 654px;
-      margin: 50px auto;
+      margin:
+       50px auto;
       margin-top: 15%;
       border-radius: 7px 7px 7px 7px;
       /* VIA CSS MATIC https://goo.gl/cIbnS */
@@ -186,6 +190,9 @@
 </div>
 </div>`
         }
+
+
+
         productsDiv.innerHTML = ch;
 
       }
@@ -194,15 +201,22 @@
     }
 
     function removeItem(id) {
+      
       var shop = localStorage.getItem('shop');
+
       shop = JSON.parse(shop);
+
       var index = getIndex(shop, parseInt(id));
+
       if (shop[index].quantity > 1) {
+
         console.log(shop[index].quantity >= 1, shop[index].quantity)
         shop[index].quantity -= 1
+
       } else {
         shop.splice(index, 1)
       }
+
       console.log(shop)
       localStorage.setItem('shop', JSON.stringify(shop));
       renderItems()
